@@ -6,7 +6,7 @@
 /*   By: cbouhadr <cbouhadr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:56:20 by cw3l              #+#    #+#             */
-/*   Updated: 2024/11/26 10:38:39 by cbouhadr         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:08:34 by cbouhadr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int     ft_size_of_array(int *arr);
 void    ft_swap(int *stack, int a, int b, char c);
 
 // rotate >>
-void    ft_rotate(int *stack, int len, char c);
+void    ft_rotate(int *stack, char c);
 // reverse rotate <<
-void    ft_reverse_rotate(int *stack, int len, char c);
+void    ft_reverse_rotate(int *stack, char c);
 void    ft_push(int *dest, int *src,char c_dst);
 
 

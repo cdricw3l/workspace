@@ -6,7 +6,7 @@
 /*   By: cbouhadr <cbouhadr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:02:02 by cw3l              #+#    #+#             */
-/*   Updated: 2024/11/26 10:38:21 by cbouhadr         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:09:04 by cbouhadr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,10 +185,10 @@ void    ft_two_or_tree_args(int *arr, int len)
         if(arr[0] > arr[1])
             ft_swap(arr, 0, 1, 'a');
         if(arr[2] < arr[0])
-            ft_reverse_rotate(arr, 3, 'a');
+            ft_reverse_rotate(arr, 'a');
         if(arr[1] > arr[2])
         {
-            ft_reverse_rotate(arr, 3, 'a');
+            ft_reverse_rotate(arr, 'a');
             ft_swap(arr, 0, 1, 'a');
         }
     }

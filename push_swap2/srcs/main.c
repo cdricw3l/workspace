@@ -6,7 +6,7 @@
 /*   By: cbouhadr <cbouhadr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:53:07 by cw3l              #+#    #+#             */
-/*   Updated: 2024/11/26 10:47:25 by cbouhadr         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:10:09 by cbouhadr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ void    ft_push_swap(int *a, int len)
     if (!b)
         return ;
     b[0] = '\0';
-    ft_push(b, a, 'b');
-    ft_print_arr(a);
-    ft_print_arr(b);
-    ft_push(a, b, 'a');
-    ft_print_arr(a);
-    ft_print_arr(b);
-    
     
 }
 
