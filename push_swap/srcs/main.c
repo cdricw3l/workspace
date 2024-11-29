@@ -3,22 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cbouhadr <cbouhadr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:53:07 by cw3l              #+#    #+#             */
-/*   Updated: 2024/11/18 16:02:39 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/11/26 16:06:21 by cbouhadr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int main(int argc, char **argv)
+int	ft_init_progr(char **argv, int **arr)
 {
+	int	len;
+	int	rep;
 
-    if(!validation_arg(&argv[1]))
-        print_str("test ok\n");
-    else
-        print_str("test KO\n");
-    
-    return (0);
+	if (!ft_validation_arg(&argv[1]))
+	{
+		len = number_of_int(argv);
+		*arr = ft_parsing(&argv[0], len);
+		rep = ft_check_repetition(*arr, len);
+		if (rep == -1)
+			return (-1);
+		else
+			return (rep);
+	}
+	return (-1);
+}
+
+void	ft_push_swap(int *a, int len)
+{
+	int	*b;
+	int	len_b;
+	int	len_a;
+
+	len_b = 0;
+	len_a = len;
+	b = malloc(sizeof(int) * len);
+	if (!b)
+		return ;
+	b[0] = '\0';
+}
+
+int	main(int argc, char **argv)
+{
+	int	len;
+	int	*arr;
+	int	tx;
+
+	arr = NULL;
+	if (argc < 2)
+		return (ft_print_error());
+	len = number_of_int(&argv[1]);
+	tx = ft_init_progr(&argv[1], &arr);
+	if (tx == -1)
+		return (ft_print_error());
+	else
+	{
+		if (len == 2 || len == 3)
+			ft_two_or_tree_args(arr, len);
+		else
+			ft_push_swap(arr, len);
+	}
+	ft_print_arr(arr);
+	return (0);
 }

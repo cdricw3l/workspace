@@ -22,7 +22,7 @@ fclean: clean
 re: fclean all
 
 gdev:
-	cd .. && git add . && git commit -m $(NAME)/$(DATE) && git push
+	git add . && git commit -m $(NAME)/$(DATE) && git push
 
 	
 #### test ###
@@ -30,8 +30,12 @@ gdev:
 
 test:
 	$(CC) $(GFLAGS) test/*.c srcs/push_swap_utils.c -Llib -lft -lftprintf -o test/test
-	./test/test
+	
 check:
 	test/checker_Mac42 $(ARGS) 
+
+exam:
+	$(CC) $(GFLAGS) test/exercice_exam.c -Llib -lft -lftprintf -o test/exam
+	test/exam
 
 .PHONY: re all fclean test
