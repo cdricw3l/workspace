@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbouhadr <cbouhadr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:45:21 by cbouhadr          #+#    #+#             */
-/*   Updated: 2024/11/19 17:10:49 by cbouhadr         ###   ########.fr       */
+/*   Updated: 2024/12/06 22:09:14 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,27 +113,16 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main(void)
-// {
-// 	int fd1;
-// 	int fd2;
+int main(void)
+{
 
-// 	fd1 = open("file1.txt",O_RDONLY);
-// 	if(fd1 == -1)
-// 	{
-// 		printf("erreur\n");
-// 		return (-1);
-// 	}
-// 	fd2 = open("file2.txt",O_RDONLY);
-// 	if(fd2 == -1)
-// 	{
-// 		printf("erreur\n");
-// 		return (-1);
-// 	}
-// 	printf("%s\n", get_next_line(fd1));
-// 	printf("%s\n", get_next_line(fd2));
-// 	printf("%s\n", get_next_line(fd1));
-// 	printf("%s\n", get_next_line(fd2));
-// 	printf("%s\n", get_next_line(fd1));
-// 	return(0);
-// }
+	
+	while (1)
+	{
+		char *s = get_next_line(0);
+
+		printf("voici : %s",s);
+	}
+	
+	return(0);
+}
