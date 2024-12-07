@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:47:58 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 13:50:08 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/07 14:33:42 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,23 @@ void ft_send_bit_to_pid(int n, int pid, int ms)
         bit--;
     }
     
+}
+
+int ft_bit_to_int(int *arr_bit)
+{
+    int num;
+    int i;
+    int b;
+
+    b = 7;
+    i = 0;
+    num = 0;
+    while (i <= 7)
+    {
+        if(arr_bit[i] == 1)
+            num = num | 1 << b;
+        i++;
+        b--;
+    }
+    return (num);
 }

@@ -9,7 +9,7 @@ CLIENTSRC =	client.c utils.c
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}
 
-TXT= "h"
+TXT= "he"
 PID=
 all: ${NAME}
 
