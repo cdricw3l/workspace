@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 22:19:53 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 19:25:23 by cw3l             ###   ########.fr       */
+/*   Created: 2024/12/07 18:49:59 by cw3l              #+#    #+#             */
+/*   Updated: 2024/12/07 21:05:22 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "minitalk.h"
 
-# include <signal.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-
-# define PID_MAX 100000
-
-typedef struct s_pid
+void ft_add_num(int *j[INT_MAX], int pid, int n)
 {
-	int pid;
-	char *str;
-} t_pid ;
+    int *arr = j[pid];
+    int i = 0;
 
-void	ft_printbit(int n);
-void	ft_send_bit_to_pid(int n, int pid, int ms);
-int		ft_bit_to_int(int *arr_bit);
+    if(!arr[0])
+        printf("rien n'est initialisé");
+    while (arr[i] != '\0')
+        i++;
+    printf("voici i%d et n%d\n", i, n);
 
-#endif
+}
+
+
+int main()
+{
+    int n = 133;
+
+    printf("%c", (unsigned char)n);
+    return(0);
+}

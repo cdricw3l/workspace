@@ -9,18 +9,19 @@ CLIENTSRC =	client.c utils.c
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}
 
-TXT= "he"
+TXT= "é"
 PID=
 all: ${NAME}
 
 s: $(NAME_S)
 	./${NAME_S}
+	@echo Démarage du serveur $$(pgrep -n serveur)
 
 c: $(NAME_C)
 	./${NAME_C} $$(pgrep -n serveur) ${TXT}
 k:
 	pgrep -n serveur | xargs kill -9
-	@echo Fin du programme $$(pgrep -n serveur)
+	@echo Interuption du serveur $$(pgrep -n serveur)
 
 r: k all s
 	
@@ -32,7 +33,7 @@ $(NAME_C) : $(CLIENTOBJS)
 
 $(NAME) : ${NAME_C} ${NAME_S}
 
-clean:
+clean: k
 	rm -f *.o
 	rm -rf *.dSYM
 	rm -f ${NAME_C}

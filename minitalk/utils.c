@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:47:58 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 15:25:44 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/07 18:37:51 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,15 @@ int	ft_bit_to_int(int *arr_bit)
 		b--;
 	}
 	return (num);
+}
+t_pid	*new_pid_node(int pid)
+{
+	t_pid	*new;
+
+	new = malloc(sizeof(t_pid) * 1);
+	if(!new)
+		return(0);
+	new->pid = pid;
+	new->str = NULL;
+	return(new);
 }
