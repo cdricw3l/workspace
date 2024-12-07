@@ -13,9 +13,10 @@ TXT= "h"
 PID=
 all: ${NAME}
 
-s:
+s: $(NAME_S)
 	./${NAME_S}
-c:
+
+c: $(NAME_C)
 	./${NAME_C} $$(pgrep -n serveur) ${TXT}
 k:
 	pgrep -n serveur | xargs kill -9
