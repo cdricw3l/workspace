@@ -3,13 +3,13 @@ CFLAGS= -Werror -Wextra -Wall -fsanitize=address -g
 NAME_S= serveur
 NAME_C= client 
 NAME= minitalk
-SERVEURSRC = serveur.c
-CLIENTSRC =	client.c
+SERVEURSRC = serveur.c utils.c
+CLIENTSRC =	client.c utils.c
 
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}
 
-TXT= "hello"
+TXT= "h"
 PID=
 all: ${NAME}
 
@@ -20,10 +20,9 @@ c:
 k:
 	pgrep -n serveur | xargs kill -9
 	@echo Fin du programme $$(pgrep -n serveur)
-	
-r: k s
-	
 
+r: k all s
+	
 $(NAME_S) : $(SERVEURIBJS)
 	${CC} ${CFLAGS} ${SERVEURIBJS} -o ${NAME_S}
 

@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:19:53 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 09:25:28 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/07 13:50:55 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
+void ft_printbit(int n);
+void ft_send_bit_to_pid(int n, int pid, int ms);
 
 #endif
