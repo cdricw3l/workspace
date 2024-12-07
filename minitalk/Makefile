@@ -7,10 +7,9 @@ SERVEURSRC = serveur.c
 CLIENTSRC =	client.c
 
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
-
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}
 
-TXT=
+TXT= "hello"
 PID=
 all: ${NAME}
 
@@ -21,6 +20,9 @@ c:
 k:
 	pgrep -n serveur | xargs kill -9
 	@echo Fin du programme $$(pgrep -n serveur)
+	
+r: k s
+	
 
 $(NAME_S) : $(SERVEURIBJS)
 	${CC} ${CFLAGS} ${SERVEURIBJS} -o ${NAME_S}
@@ -41,5 +43,5 @@ re: clean all
 gdev:
 	cd .. && git add . && git commit -m minitalk && git push
 
-.PHONY: gdev clean all c s kill
+.PHONY: gdev clean all c s k
 

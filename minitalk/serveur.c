@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 09:39:03 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/07 13:27:37 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,7 @@ void ft_printbit(int n)
 
 void ft_handler(int n)
 {
-    static int x = 0;
-    static int i = 7;
-    x = x | n << i;
-    ft_printbit(x);
-    if (i == 1)
-        i = 7;
-    else
-        i--;
-    //printf("%d\n", x);  
-  
-    
+    printf("%d\n", n - 30);
 }
 
 int main() {
