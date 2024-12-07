@@ -6,13 +6,13 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 15:17:06 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/07 15:27:44 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	ft_send_msg(char *str, int pid)
+static void	ft_send_msg(char *str, int pid)
 {
 	while (*str)
 	{
