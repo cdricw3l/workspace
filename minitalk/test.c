@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 18:49:59 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 10:30:41 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 15:36:43 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void try(int **arr, int n)
 
 int main()
 {
-    arr = malloc(sizeof(char *) * (PID_MAX));
+    arr = malloc(sizeof(char *) * (0));
     arr[0] = NULL;
 	if(!arr)
         return(0);

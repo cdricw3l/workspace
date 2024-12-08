@@ -9,7 +9,10 @@ CLIENTSRC =	client.c utils.c
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}
 
-TXT= "֍"
+
+TXT1= "hello"
+TXT2= "worldd"
+
 PID=
 all: ${NAME}
 
@@ -18,7 +21,7 @@ s: $(NAME_S)
 	@echo Démarage du serveur $$(pgrep -n serveur)
 
 c: $(NAME_C)
-	time ./${NAME_C} $$(pgrep -n serveur) ${TXT}
+	time ./${NAME_C} $$(pgrep -n serveur) ${TXT1} ${TXT2} 
 k:
 	pgrep -n serveur | xargs kill -9
 	@echo Interuption du serveur $$(pgrep -n serveur)
