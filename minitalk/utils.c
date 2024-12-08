@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:47:58 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 12:15:43 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 12:47:35 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void send_end_signal(int pid, int ms)
     i = 0;
     while (i <= 7)
     {
-        kill(pid, SIGUSR2);
+        kill(pid, SIGUSR1);
         usleep(ms);
         i++;
     }

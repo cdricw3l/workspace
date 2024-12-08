@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 12:29:33 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 12:53:25 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	ft_send_msg(char *str, int pid)
 	send_separator_signal(pid,100);
 	printf("le client rentre en pause \n");
 	pause();
+	sleep(2);
 	printf("Après pause\n");
 	while (*str)
 	{
@@ -70,6 +71,7 @@ int	main(int argc, char **argv)
 	while (argv[i])
 	{
 		ft_send_msg(argv[i++], serveur_pid);
+		printf("envoi du message de fin\n");
 		send_end_signal(serveur_pid, 100);
 		pause();
 		printf("Le message a bien été envoye au serveur %d\n", serveur_pid);
