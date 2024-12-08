@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 14:05:03 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 14:10:39 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 		if(j == 0)
 		{
 			
-			usleep(120);
+			usleep(150);
 			kill(p,SIGUSR1);
 			printf("\nvoici le mwssage %s\n", pid);
 
