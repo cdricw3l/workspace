@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 12:56:14 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 13:17:02 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 	int p = info->si_pid;
 	static int k = 7;
 	static int j = 0;
+	static int mask = 0;
 
 	
 	(void)context;
@@ -30,21 +31,31 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 	
 		if(j == 0xff)
 		{
-			sleep(2);
+			sleep(1);
 			printf("confirmation de reception de la taille a traiter a pid %d\n", p);
 			kill(p,SIGUSR1);
 			printf("En attente du message\n");
 		}
 		if(j == 0)
 		{
-			sleep(2);
 			printf("\nfin du message\n");
+			sleep(1);
 			kill(p,SIGUSR1);
 			exit(0);
 		}
 		else
-			printf("voici l'entier recu %d", j);
-		printf("\n");
+		{
+			if(mask == 0)
+			{
+				printf("voici la taille a traité %d", j);
+				mask++;
+			}
+			else if(j != 0xff)
+			{
+				printf("%c", j);
+				
+			}
+		}
 		
 		k = 7;
 		j = 0;
