@@ -6,50 +6,42 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 21:15:44 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 11:05:24 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-
-// void add_value_in_arr(int *arr[INT_MAX], int n)
-// {
-	
-// }
-int ft_strlen(const char *str)
-{
-	int i;
-
-	i = 0;
-	while (*str)
-		i++;
-	return(i);
-}
-
+int **pid;
 
 void	ft_handler(int n, siginfo_t* info, void* context)
 {
-	int pid = info->si_pid;
+	int p = info->si_pid;
 	static int k = 7;
 	static int j = 0;
 
-
+	if(pid[p] == NULL)
+	{
+		ft_bzero(pid[p]);
+	}
 	(void)context;
-	(void)info;
 	if(n == 31)
-		j = j | ((1 << k) & 1); 
+		j = j | ((1 << k)); 
 	k--;
 	if(k < 0)
 	{
-		printf("voici j %d\n",j);
-		char c = j + '0';
-		write(1, &c,1);
-		k--;
+		pid[p] = add_nb(pid[p], j);
+		printf("%c", j);
+		if(j == 0)
+		{
+			printf("\nfin du message\n");
+			exit(0);
+		}
+		k = 7;
+		j = 0;
 	}
-	printf("%d",j);
 	//ft_strjoin(j[pid], c);
-	kill(pid,n);
+	//kill(pid,n);
 	fflush(stdout);
 	
 }
@@ -67,16 +59,25 @@ void set_zero(int arr[], int len)
 	}
 }
 
+void init_arr(int **arr, int max)
+{
+	int i;
+
+	i = 0;
+	while(i < max)
+		arr[i++] = NULL;
+}
+
 int	main(void)
 {
 	int					i;
 	struct sigaction	action;
 
 	i = getpid();
-	// j = malloc(sizeof(int) * INT_MAX);
-	// if(!j)
-	// 	return (1);
-	
+	pid = malloc(sizeof(char *) * (PID_MAX));
+	if(!pid)
+		return (1);
+	init_arr(pid,PID_MAX);
 	action.sa_sigaction = ft_handler;
 	action.sa_flags = SA_SIGINFO;
 	printf("voici le pid %d\n", i);

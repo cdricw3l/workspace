@@ -6,11 +6,13 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 18:49:59 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 21:05:22 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 10:30:41 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int **arr;
 
 void ft_add_num(int *j[INT_MAX], int pid, int n)
 {
@@ -24,12 +26,21 @@ void ft_add_num(int *j[INT_MAX], int pid, int n)
     printf("voici i%d et n%d\n", i, n);
 
 }
-
+void try(int **arr, int n)
+{
+    (void)n;
+    ft_bzero(arr[0]);
+    printf("%d\n", arr[0]== NULL);
+    //add_nb(arr[0], n);
+}
 
 int main()
 {
-    int n = 133;
-
-    printf("%c", (unsigned char)n);
+    arr = malloc(sizeof(char *) * (PID_MAX));
+    arr[0] = NULL;
+	if(!arr)
+        return(0);
+    try(arr, 10);
+    
     return(0);
 }

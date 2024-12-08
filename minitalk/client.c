@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/07 20:43:44 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 11:02:36 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_handler_reception(int n)
 
 static void	ft_send_msg(char *str, int pid)
 {
+	
 	while (*str)
 	{
 		ft_send_bit_to_pid(*str, pid, 100);
@@ -56,7 +57,10 @@ int	main(int argc, char **argv)
 	i = 2;
 	printf("voici le pid %d\n", pid);
 	while (argv[i])
+	{
 		ft_send_msg(argv[i++], pid);
+		send_end_signal(pid, 100);
+	}
 	
 	return (0);
 }
