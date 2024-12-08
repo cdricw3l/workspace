@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 14:10:23 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 14:11:52 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void	ft_send_msg(char *str, int pid)
 	while (*str)
 	{
 		ft_send_bit_to_pid(*str, pid, 100);
-		//printf("\n");
 		str++;
 	}
 	printf("\n");

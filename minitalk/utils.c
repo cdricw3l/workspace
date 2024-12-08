@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:47:58 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 13:39:33 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 14:21:26 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,6 @@ int ft_strlen(char *str)
 		str++;
 	}
 	return (i);
-}
-
-int ft_print_arr(int *arr)
-{
-    int i;
-
-    i = 0;
-    while (arr[i] != 0)
-    {
-        printf("%d ", arr[i++]);
-    }
-    return(i);
 }
 
 void	ft_printbit(int n)
@@ -116,17 +104,6 @@ int	ft_bit_to_int(int *arr_bit)
 	}
 	return (num);
 }
-t_pid	*new_pid_node(int pid)
-{
-	t_pid	*new;
-
-	new = malloc(sizeof(t_pid) * 1);
-	if(!new)
-		return(0);
-	new->pid = pid;
-	new->str = NULL;
-	return(new);
-}
 
 char *str_joint(char *str, char c)
 {
@@ -152,89 +129,3 @@ char *str_joint(char *str, char c)
     return(new_s);
 }
 
-int int_arr_len(int *arr)
-{
-    int i;
-
-    i = 0;
-    while(arr[i] != 0)
-        i++;
-    return (i);    
-}
-
-int *add_nb(int *arr, int n)
-{
-    int len;
-    int *new_arr;
-    int i;
-
-    i = 0;
-    if(!arr)
-        len = 2;
-    else
-        len = int_arr_len(arr);
-    new_arr = malloc(sizeof(int) * (len + 2));
-    if(!arr)
-        return(NULL);
-    printf("voici la taille %d\n", len);
-    while (i < len)
-    {
-        new_arr[i] = arr[i];
-        i++;
-    }
-    new_arr[i++] = n;
-    new_arr[i] = '\0';
-    ft_print_arr(new_arr);
-    return(new_arr);
-}
-int    **ft_clean_arr(int *arr[], int i)
-{
-    int j;
-
-    j = 0;
-    while (j < i)
-    {
-        arr[j] = NULL;
-        free(arr[j]);
-        j++;
-    }
-    return (NULL);
-    
-}
-
-int **ft_int_bzero(int *arr[PID_MAX])
-{
-    int i;
-    int *tab;
-
-    i = 0;
-    while (i < PID_MAX)
-    {
-        tab = malloc(sizeof(int) * 1);
-        if(!tab)
-            return(ft_clean_arr(arr, i));
-        tab[0] = '\0';
-        arr[i++]= tab;
-    }
-    return(arr);
-}
-int *ft_bzero(int *arr)
-{
-    int i;
-    int *tab;
-
-    i = 0;
-    tab = NULL;
-    if(arr == NULL)
-    {
-        tab = malloc(sizeof(int) * 1);
-        if(!tab)
-        {
-
-            return(*(ft_clean_arr(&arr, i)));
-        }
-        tab[0] = 0;
-        return(tab);
-    }
-    return (NULL);
-}
