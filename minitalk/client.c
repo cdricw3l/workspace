@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 14:11:52 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 16:11:34 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,16 @@ static void	ft_send_msg(char *str, int pid)
 
 int	main(int argc, char **argv)
 {
-	pid_t	serveur_pid;
-	int		i;
+	pid_t				serveur_pid;
 	struct sigaction	action;
-
 	int					client_pid;
+	int					i;
 
 	client_pid = getpid();
 	action.sa_handler= ft_handler_reception;
 	action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR2, &action, NULL);
 	sigaction(SIGUSR1, &action, NULL);
-
 	if (argc == 1)
 		return (1);
 	serveur_pid = atoi(argv[1]);
@@ -75,6 +73,5 @@ int	main(int argc, char **argv)
 		pause();
 		printf("Le message a bien été envoye au serveur %d\n", serveur_pid);
 	}
-	
 	return (0);
 }
