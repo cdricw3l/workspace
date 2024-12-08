@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 16:06:32 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 16:33:27 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ void	ft_process_end(char **g_pid_string, int p, int *tm)
 	printf("\nvoici le mwssage %s\n", *g_pid_string);
 	free(*g_pid_string);
 	*g_pid_string = NULL;
-
 }
 
 void	ft_process_str(char **g_pid_string, int *size_str, int j)
 {
-	char *tmp;
-	
+	char	*tmp;
+
 	if (*size_str == 0)
 		*size_str = j;
 	else
@@ -42,13 +41,10 @@ void	ft_alloc_memory_str(char **g_pid_string, int p, int *tm)
 	printf("voic tm %d\n", *tm);
 	usleep(120);
 	*g_pid_string = malloc(sizeof(char) * (*tm + 1));
-	printf("confirmation de reception de la taille a traiter a pid %d\n", *tm + 1);
 	*tm = -2;
-	printf("confirmation de reception de la taille a traiter a pid %d\n", *tm + 1);
 	*g_pid_string[0] = 0;
 	kill(p, SIGUSR1);
 	printf("En attente du message\n");
-
 }
 
 void	ft_handler(int n, siginfo_t *info, void *context)
@@ -70,7 +66,7 @@ void	ft_handler(int n, siginfo_t *info, void *context)
 		else if (j == 0xff)
 			ft_alloc_memory_str(&g_pid_string, p, &size_str);
 		else
-			ft_process_str(&g_pid_string,&size_str, j);
+			ft_process_str(&g_pid_string, &size_str, j);
 		k = 7;
 		j = 0;
 	}

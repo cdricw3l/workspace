@@ -3,8 +3,8 @@ CFLAGS= -Werror -Wextra -Wall -fsanitize=address -g
 NAME_S= serveur
 NAME_C= client 
 NAME= minitalk
-SERVEURSRC = serveur.c utils.c
-CLIENTSRC =	client.c utils.c
+SERVEURSRC = serveur.c utils_1.c utils_2.c
+CLIENTSRC =	client.c utils_1.c utils_2.c
 
 SERVEURIBJS = ${SERVEURSRC:*.c=.o}
 CLIENTOBJS = ${CLIENTSRC:*.c=.o}

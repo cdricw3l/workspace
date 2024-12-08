@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 16:11:34 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 16:24:46 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_handler_reception(int n)
 {
-	char *c;
-	
-	if(n == 30)
+	char	*c;
+
+	if (n == 30)
 	{
 		c = "message bien recu\n";
 		write(1, c, 19);
@@ -30,11 +30,11 @@ void	ft_handler_reception(int n)
 
 static void	ft_send_msg(char *str, int pid)
 {
-	int len;
-	
+	int	len;
+
 	len = ft_strlen(str);
 	ft_send_bit_to_pid(len, pid, 100);
-	send_separator_signal(pid,100);
+	send_separator_signal(pid, 100);
 	printf("le client rentre en pause \n");
 	pause();
 	usleep(210);
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 	int					i;
 
 	client_pid = getpid();
-	action.sa_handler= ft_handler_reception;
+	action.sa_handler = ft_handler_reception;
 	action.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR2, &action, NULL);
 	sigaction(SIGUSR1, &action, NULL);
