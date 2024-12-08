@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:47:58 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 10:48:00 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 12:15:43 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,19 @@ void send_end_signal(int pid, int ms)
     i = 0;
     while (i <= 7)
     {
-        kill(pid, SIGUSR1);
+        kill(pid, SIGUSR2);
+        usleep(ms);
+        i++;
+    }
+}
+void send_separator_signal(int pid, int ms)
+{
+    int i;
+
+    i = 0;
+    while (i <= 7)
+    {
+        kill(pid, SIGUSR2);
         usleep(ms);
         i++;
     }
@@ -95,7 +107,7 @@ int	ft_bit_to_int(int *arr_bit)
 	b = 7;
 	i = 0;
 	num = 0;
-	while (i <= 7)
+	while (i <= b)
 	{
 		if (arr_bit[i] == 1)
 			num = num | 1 << b;

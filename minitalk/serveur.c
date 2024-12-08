@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 11:05:24 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 12:30:32 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,14 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 	}
 	(void)context;
 	if(n == 31)
-		j = j | ((1 << k)); 
+		j = j | (((int)1 << k)); 
 	k--;
 	if(k < 0)
 	{
 		pid[p] = add_nb(pid[p], j);
-		printf("%c", j);
+		printf("%c", (int)j);
+		printf("\n");
+		ft_printbit(j);
 		if(j == 0)
 		{
 			printf("\nfin du message\n");

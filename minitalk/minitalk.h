@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:19:53 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 10:45:36 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 12:15:48 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int 	**ft_int_bzero(int *arr[PID_MAX]);
 int 	*ft_bzero(int *arr);
 int 	ft_print_arr(int *arr);
 void 	send_end_signal(int pid, int ms);
+void 	send_separator_signal(int pid, int ms);
 
 #endif
