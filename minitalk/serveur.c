@@ -6,13 +6,13 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 20:11:09 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 13:17:02 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 14:05:03 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int **pid;
+char *pid;
 
 void	ft_handler(int n, siginfo_t* info, void* context)
 {
@@ -31,17 +31,20 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 	
 		if(j == 0xff)
 		{
-			sleep(1);
+			usleep(120);
 			printf("confirmation de reception de la taille a traiter a pid %d\n", p);
+			pid = malloc(sizeof(char) * (p + 1));
+			pid[0] = 0;
 			kill(p,SIGUSR1);
 			printf("En attente du message\n");
 		}
 		if(j == 0)
 		{
-			printf("\nfin du message\n");
-			sleep(1);
+			
+			usleep(120);
 			kill(p,SIGUSR1);
-			exit(0);
+			printf("\nvoici le mwssage %s\n", pid);
+
 		}
 		else
 		{
@@ -52,8 +55,7 @@ void	ft_handler(int n, siginfo_t* info, void* context)
 			}
 			else if(j != 0xff)
 			{
-				printf("%c", j);
-				
+				pid = str_joint(pid,j);
 			}
 		}
 		
@@ -94,10 +96,6 @@ int	main(void)
 	struct sigaction	action;
 
 	i = getpid();
-	pid = malloc(sizeof(char *) * (PID_MAX));
-	if(!pid)
-		return (1);
-	init_arr(pid,PID_MAX);
 	action.sa_sigaction = ft_handler;
 	action.sa_flags = SA_SIGINFO;
 	printf("voici le pid %d\n", i);

@@ -6,7 +6,7 @@
 /*   By: cw3l <cw3l@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:17:10 by cw3l              #+#    #+#             */
-/*   Updated: 2024/12/08 12:53:25 by cw3l             ###   ########.fr       */
+/*   Updated: 2024/12/08 13:56:14 by cw3l             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static void	ft_send_msg(char *str, int pid)
 	send_separator_signal(pid,100);
 	printf("le client rentre en pause \n");
 	pause();
-	sleep(2);
+	usleep(210);
 	printf("Après pause\n");
 	while (*str)
 	{
 		ft_send_bit_to_pid(*str, pid, 100);
-		printf("\n");
+		//printf("\n");
 		str++;
 	}
 	printf("\n");
